@@ -14,7 +14,10 @@ body {
     color: #222;
 }
 
-/* NAVBAR */
+
+/* =========================
+   NAVBAR
+========================= */
 
 .navbar {
     height: 72px;
@@ -63,7 +66,9 @@ body {
 }
 
 
-/* HERO */
+/* =========================
+   HERO
+========================= */
 
 .hero {
     max-width: 1200px;
@@ -127,7 +132,9 @@ body {
 }
 
 
-/* BENEFITS */
+/* =========================
+   BENEFITS
+========================= */
 
 .benefits {
     max-width: 1200px;
@@ -157,7 +164,9 @@ body {
 }
 
 
-/* PRODUCTS */
+/* =========================
+   PRODUCTS
+========================= */
 
 main {
     max-width: 1200px;
@@ -186,6 +195,56 @@ main {
 .section-title p {
     color: #777;
 }
+
+
+/* =========================
+   BARRA DE PESQUISA
+========================= */
+
+.search-box {
+    max-width: 600px;
+    margin: 0 auto 35px;
+    position: relative;
+}
+
+.search-box i {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+    font-size: 18px;
+    pointer-events: none;
+}
+
+#productSearch {
+    width: 100%;
+    height: 52px;
+    padding: 0 20px 0 50px;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #222;
+    background: white;
+    border: 2px solid #eee;
+    border-radius: 30px;
+    outline: none;
+    transition: 0.25s;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+}
+
+#productSearch::placeholder {
+    color: #999;
+}
+
+#productSearch:focus {
+    border-color: #ee4d2d;
+    box-shadow: 0 5px 18px rgba(238, 77, 45, 0.12);
+}
+
+
+/* =========================
+   LISTA DE PRODUTOS
+========================= */
 
 .products {
     display: grid;
@@ -265,7 +324,9 @@ main {
 }
 
 
-/* CTA */
+/* =========================
+   CTA
+========================= */
 
 .cta {
     max-width: 1200px;
@@ -305,7 +366,9 @@ main {
 }
 
 
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
 
 footer {
     background: #111;
@@ -330,7 +393,9 @@ footer small {
 }
 
 
-/* MOBILE */
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 900px) {
 
@@ -382,6 +447,13 @@ footer small {
         display: inline-block;
         margin-top: 20px;
     }
+
+    /* PESQUISA NO CELULAR */
+
+    .search-box {
+        max-width: 100%;
+        margin-bottom: 30px;
+    }
 }
 
 
@@ -421,5 +493,16 @@ footer small {
 
     .buy-button {
         font-size: 12px;
+    }
+
+    /* PESQUISA NO CELULAR */
+
+    #productSearch {
+        height: 48px;
+        font-size: 15px;
+    }
+
+    .search-box i {
+        left: 18px;
     }
 }

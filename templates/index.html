@@ -124,12 +124,20 @@
 
         </div>
 
+        <div class="search-container">
+            <input
+                type="text"
+                id="productSearch"
+                placeholder="Buscar produtos..."
+                onkeyup="searchProduct()"
+            >
+        </div>
 
         <div class="products">
 
             {% for product in products %}
 
-            <article class="product-card">
+            <article class="product-card" data-product-name="{{ product.name | lower }}">
 
                 <div class="product-image">
 
@@ -218,6 +226,23 @@
         </small>
 
     </footer>
+
+<script>
+function searchProduct() {
+    const search = document.getElementById("productSearch").value.tolowerCase();
+    const product = document.querySelectorAll(".product-card");
+
+    product.forEach(product => {
+        const name = product.getAttribute("data-product-name");
+        
+        if (name.includes(search)) {
+            product.style.display = "";
+        } else {
+            product.style.display = "none";
+        }
+    });
+}
+</script>
 
 </body>
 </html>
