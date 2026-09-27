@@ -8,11 +8,11 @@
     <title>Ofertas do Dia</title>
     <meta name="description" content="Encontre ofertas e produtos incríveis.">
 
-    <!-- Ícones modernos -->
+    <!-- Font Awesome -->
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    <!-- CSS do site -->
+    <!-- CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
@@ -124,20 +124,31 @@
 
         </div>
 
-        <div class="search-container">
+
+        <!-- BARRA DE PESQUISA -->
+        <div class="search-box">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
             <input
                 type="text"
                 id="productSearch"
                 placeholder="Buscar produtos..."
-                onkeyup="searchProduct()"
+                onkeyup="searchProducts()"
             >
+
         </div>
 
+
+        <!-- LISTA DE PRODUTOS -->
         <div class="products">
 
             {% for product in products %}
 
-            <article class="product-card" data-product-name="{{ product.name | lower }}">
+            <article
+                class="product-card"
+                data-product-name="{{ product.name | lower }}"
+            >
 
                 <div class="product-image">
 
@@ -222,27 +233,41 @@
         </p>
 
         <small>
-            © 2026 Ofertas. Todos os direitos reservados.
+            ©️ 2026 Ofertas. Todos os direitos reservados.
         </small>
 
     </footer>
 
-<script>
-function searchProduct() {
-    const search = document.getElementById("productSearch").value.tolowerCase();
-    const product = document.querySelectorAll(".product-card");
 
-    product.forEach(product => {
-        const name = product.getAttribute("data-product-name");
-        
-        if (name.includes(search)) {
-            product.style.display = "";
-        } else {
-            product.style.display = "none";
+    <!-- PESQUISA -->
+    <script>
+
+        function searchProducts() {
+
+            const search = document
+                .getElementById("productSearch")
+                .value
+                .toLowerCase()
+                .trim();
+
+            const products = document.querySelectorAll(".product-card");
+
+            products.forEach(product => {
+
+                const name = product
+                    .getAttribute("data-product-name");
+
+                if (name.includes(search)) {
+                    product.style.display = "";
+                } else {
+                    product.style.display = "none";
+                }
+
+            });
+
         }
-    });
-}
-</script>
+
+    </script>
 
 </body>
 </html>
